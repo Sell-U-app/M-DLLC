@@ -46,7 +46,7 @@ function handle_form(array $fields, array $required = []): array {
     }
 
     // Cuerpo
-    $lines = ['Nuevo mensaje desde ' . ($SITE['name'] ?? 'el sitio web'), str_repeat('-', 40)];
+    $lines = ['New message from ' . ($SITE['name'] ?? 'the website'), str_repeat('-', 40)];
     foreach ($fields as $label => $name) {
         $val = fclean($old[$name] ?? '');
         if ($val !== '') $lines[] = "$label: $val";
@@ -54,7 +54,7 @@ function handle_form(array $fields, array $required = []): array {
     $body = implode("\n", $lines);
 
     $to      = $SITE['form_to'] ?? ($SITE['email'] ?? '');
-    $subject = '[' . ($SITE['name'] ?? 'Web') . '] Nuevo mensaje del formulario';
+    $subject = '[' . ($SITE['name'] ?? 'Web') . '] New website form submission';
     $domain  = parse_url($SITE['base_url'] ?? 'https://example.com', PHP_URL_HOST) ?: 'example.com';
     $replyTo = filter_var($old['email'] ?? '', FILTER_VALIDATE_EMAIL) ?: $to;
 
@@ -81,7 +81,7 @@ function log_lead(array $fields, array $old): bool {
     $fh = @fopen($file, 'a');
     if (!$fh) return false;
     if ($isNew) {
-        fputcsv($fh, array_merge(['fecha'], array_keys($fields)));
+        fputcsv($fh, array_merge(['date'], array_keys($fields)));
     }
     $row = [date('Y-m-d H:i:s')];
     foreach ($fields as $name) { $row[] = fclean($old[$name] ?? ''); }

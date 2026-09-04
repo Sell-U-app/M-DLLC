@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/inc/config.php';
-$title  = 'M&D Buildings LLC — Construcción y remodelación con avance a la vista';
-$desc   = 'Construcción residencial, remodelaciones, techos y concreto. Estimado gratis por partidas, permisos incluidos y reporte semanal de avance.';
+$title  = 'M&D Buildings LLC — Construction and remodeling with visible progress';
+$desc   = 'Residential construction, remodels, roofing and concrete. Free line-item estimate, permits included and a weekly progress report with photos.';
 $active = 'home';
 
 $extra_css = '
@@ -11,7 +11,7 @@ $extra_css = '
 .roof{width:64px;height:22px;margin-bottom:18px;background:var(--accent);clip-path:polygon(0 100%,50% 0,100% 100%,100% 78%,50% 22%,0 78%)}
 .trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:26px;font-size:14px;color:var(--muted)}
 .trust b{color:var(--ink);font-weight:600}
-/* Ticker de especialidades */
+/* Trades ticker */
 .marq{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:15px 0;background:var(--surface)}
 .marq div{display:inline-flex;white-space:nowrap;animation:sc 30s linear infinite}
 .marq span{font-family:var(--font-head);font-weight:700;font-size:16px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding:0 26px}
@@ -26,27 +26,27 @@ $extra_css = '
 .tp{display:none;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,40px);align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:clamp(24px,4vw,42px)}
 #tf1:checked~.tp1,#tf2:checked~.tp2,#tf3:checked~.tp3,#tf4:checked~.tp4{display:grid}
 .tp .viz{aspect-ratio:16/10;border-radius:12px;display:flex;align-items:flex-end;padding:16px}
-/* Servicios */
+/* Services */
 .svc{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:clamp(22px,3vw,28px);transition:border-color .2s,transform .2s}
 .svc:hover{border-color:var(--accent);transform:translateY(-3px)}
 .svc .n{font-family:var(--font-head);font-weight:800;font-size:13px;color:var(--accent);letter-spacing:.1em}
 .svc ul{list-style:none;padding:0;margin:14px 0 0;font-size:14px;color:var(--muted)}
 .svc li{padding:6px 0 6px 20px;position:relative}
 .svc li::before{content:"";position:absolute;left:0;top:14px;width:8px;height:2px;background:var(--accent)}
-/* Proceso */
+/* Process */
 .step{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--border);align-items:start}
 .step .num{font-family:var(--font-head);font-weight:800;font-size:clamp(28px,4vw,40px);color:var(--accent);line-height:1;opacity:.85;min-width:2.2ch}
-/* Casos */
+/* Cases */
 .case{display:grid;grid-template-columns:1fr 1.25fr;gap:24px;padding:26px 0;border-top:1px solid var(--border);align-items:center}
 .case .im{aspect-ratio:16/10;border-radius:12px}
-/* Tipos de proyecto */
+/* Project types */
 .plan{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:clamp(24px,3vw,30px);position:relative}
 .plan.best{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
 .plan .tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--primary-ink);font-family:var(--font-head);font-weight:700;font-size:12px;padding:5px 14px;border-radius:999px;white-space:nowrap}
 .plan ul{list-style:none;padding:0;margin:16px 0 22px}
 .plan li{padding:9px 0;border-top:1px solid var(--border);font-size:14px}
 .plan li::before{content:"✓ ";color:var(--accent);font-weight:700}
-/* Testimonios */
+/* Testimonials */
 .tst{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:26px}
 .tst .q{font-size:15px;margin:0 0 16px}
 .tst .who{font-family:var(--font-head);font-weight:700;font-size:14px}
@@ -61,26 +61,26 @@ require __DIR__ . '/inc/head.php';
   <div class="container hero-grid">
     <div>
       <div class="roof"></div>
-      <span class="chip"><span class="dot"></span> Estimado gratis en 48 h</span>
+      <span class="chip"><span class="dot"></span> Free estimate in 48 hours</span>
       <h1 style="margin-top:18px;max-width:16ch"><?= htmlspecialchars($SITE['tagline']) ?></h1>
-      <p class="lead">Construcción residencial, remodelaciones, techos y concreto. Presupuesto desglosado por partidas, permisos incluidos y reporte semanal con fotos del avance.</p>
+      <p class="lead">Residential construction, remodels, roofing and concrete. A line-item budget, permits handled by us, and a weekly report with photos of the actual progress.</p>
       <div class="btn-row" style="margin-top:28px">
-        <a href="contacto.php" class="btn btn--lg">Pedir estimado gratis</a>
-        <a href="#proceso" class="btn btn--ghost btn--lg">Cómo trabajamos</a>
+        <a href="contact.php" class="btn btn--lg">Get a free estimate</a>
+        <a href="#process" class="btn btn--ghost btn--lg">How we work</a>
       </div>
       <div class="trust">
         <span><b>✓</b> <?= htmlspecialchars($SITE['license']) ?></span>
-        <span><b>✓</b> Garantía escrita de 1 año</span>
-        <span><b>✓</b> Equipo propio en obra</span>
+        <span><b>✓</b> 1-year written warranty</span>
+        <span><b>✓</b> Our own crew on site</span>
       </div>
     </div>
 
     <div class="panel">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px">
-        <span style="font-family:var(--font-head);font-weight:700">Obra · Casa Norte</span>
-        <span class="chip"><span class="dot"></span> En tiempo</span>
+        <span style="font-family:var(--font-head);font-weight:700">Job · North House</span>
+        <span class="chip"><span class="dot"></span> On schedule</span>
       </div>
-      <?php foreach ([['Cimentación','100%'],['Estructura','88%'],['Cubierta','62%'],['Acabados','24%']] as $r): ?>
+      <?php foreach ([['Foundation','100%'],['Framing','88%'],['Roofing','62%'],['Finishes','24%']] as $r): ?>
         <div style="margin-bottom:14px">
           <div style="display:flex;justify-content:space-between;font-size:13px">
             <span class="muted"><?= $r[0] ?></span>
@@ -90,8 +90,8 @@ require __DIR__ . '/inc/head.php';
         </div>
       <?php endforeach; ?>
       <div class="muted" style="display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;padding-top:16px;border-top:1px solid var(--border);font-size:12.5px">
-        <span><span class="dot"></span> Presupuesto sin desviación</span>
-        <span><span class="dot"></span> Inspección aprobada</span>
+        <span><span class="dot"></span> On budget</span>
+        <span><span class="dot"></span> Inspection passed</span>
       </div>
     </div>
   </div>
@@ -99,14 +99,14 @@ require __DIR__ . '/inc/head.php';
 
 <div class="marq"><div><?php for ($k = 0; $k < 2; $k++) foreach ($TICKER as $t): ?><span><?= htmlspecialchars($t) ?></span><?php endforeach; ?></div></div>
 
-<!-- Servicios -->
-<section class="section" id="servicios">
+<!-- Services -->
+<section class="section" id="services">
   <div class="container">
-    <div class="chip">Qué hacemos</div>
-    <h2 style="margin:16px 0 8px">Un solo contratista para toda la obra</h2>
-    <p class="lead" style="margin-bottom:36px">Del permiso al último detalle de pintura, con un mismo responsable y un solo contrato.</p>
+    <div class="chip">What we do</div>
+    <h2 style="margin:16px 0 8px">One contractor for the whole job</h2>
+    <p class="lead" style="margin-bottom:36px">From the permit to the last coat of paint, with one responsible party and one contract.</p>
     <div class="grid grid-3">
-      <?php foreach ($SERVICIOS as $i => $s): ?>
+      <?php foreach ($SERVICES as $i => $s): ?>
         <div class="svc">
           <div class="n"><?= str_pad((string)($i + 1), 2, '0', STR_PAD_LEFT) ?></div>
           <h3 style="margin:10px 0 8px"><?= htmlspecialchars($s[0]) ?></h3>
@@ -115,15 +115,15 @@ require __DIR__ . '/inc/head.php';
         </div>
       <?php endforeach; ?>
     </div>
-    <div style="margin-top:32px"><a href="servicios.php" class="btn btn--ghost">Ver detalle de servicios</a></div>
+    <div style="margin-top:32px"><a href="services.php" class="btn btn--ghost">See services in detail</a></div>
   </div>
 </section>
 
-<!-- Tabs: cómo trabajamos -->
-<section class="section" id="proceso" style="background:linear-gradient(180deg,transparent,rgba(19,39,61,.5),transparent)">
+<!-- Tabs: how we work -->
+<section class="section" id="process" style="background:linear-gradient(180deg,transparent,rgba(19,39,61,.5),transparent)">
   <div class="container">
-    <div class="chip">Cómo trabajamos</div>
-    <h2 style="margin:16px 0 26px">Sin sorpresas en el precio ni en la fecha</h2>
+    <div class="chip">How we work</div>
+    <h2 style="margin:16px 0 26px">No surprises on the price or the date</h2>
     <div class="tabs">
       <input type="radio" name="tf" id="tf1" checked><input type="radio" name="tf" id="tf2"><input type="radio" name="tf" id="tf3"><input type="radio" name="tf" id="tf4">
       <div class="tablist"><?php foreach ($TABS as $i => $t): ?><label for="tf<?= $i + 1 ?>"><?= htmlspecialchars($t[0]) ?></label><?php endforeach; ?></div>
@@ -132,7 +132,7 @@ require __DIR__ . '/inc/head.php';
           <div>
             <h3><?= htmlspecialchars($t[0]) ?></h3>
             <p class="muted" style="margin:0"><?= htmlspecialchars($t[1]) ?></p>
-            <div style="margin-top:22px"><a href="contacto.php" class="btn">Empezar por el estimado</a></div>
+            <div style="margin-top:22px"><a href="contact.php" class="btn">Start with the estimate</a></div>
           </div>
           <div class="viz blueprint"><span class="chip"><?= htmlspecialchars($t[0]) ?></span></div>
         </div>
@@ -141,7 +141,7 @@ require __DIR__ . '/inc/head.php';
   </div>
 </section>
 
-<!-- Cifras -->
+<!-- Figures -->
 <section class="section--tight" style="border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface)">
   <div class="container grid grid-4">
     <?php foreach ($STATS as $s): ?>
@@ -150,12 +150,12 @@ require __DIR__ . '/inc/head.php';
   </div>
 </section>
 
-<!-- Proceso paso a paso -->
+<!-- Process -->
 <section class="section">
   <div class="container" style="max-width:900px">
-    <div class="chip">Paso a paso</div>
-    <h2 style="margin:16px 0 10px">De la llamada a la entrega</h2>
-    <?php foreach ($PROCESO as $p): ?>
+    <div class="chip">Step by step</div>
+    <h2 style="margin:16px 0 10px">From the first call to the handover</h2>
+    <?php foreach ($PROCESS as $p): ?>
       <div class="step">
         <div class="num"><?= htmlspecialchars($p[0]) ?></div>
         <div>
@@ -167,12 +167,12 @@ require __DIR__ . '/inc/head.php';
   </div>
 </section>
 
-<!-- Proyectos destacados -->
-<section class="section" id="proyectos">
+<!-- Featured projects -->
+<section class="section" id="projects">
   <div class="container">
-    <div class="chip">Proyectos</div>
-    <h2 style="margin:16px 0 6px">Trabajo entregado, no renders</h2>
-    <?php foreach (array_slice($PROYECTOS, 0, 3) as $c): ?>
+    <div class="chip">Projects</div>
+    <h2 style="margin:16px 0 6px">Work delivered, not renderings</h2>
+    <?php foreach (array_slice($PROJECTS, 0, 3) as $c): ?>
       <div class="case">
         <div class="im blueprint"></div>
         <div>
@@ -182,39 +182,39 @@ require __DIR__ . '/inc/head.php';
         </div>
       </div>
     <?php endforeach; ?>
-    <div style="margin-top:32px"><a href="proyectos.php" class="btn btn--ghost">Ver todos los proyectos</a></div>
+    <div style="margin-top:32px"><a href="projects.php" class="btn btn--ghost">See all projects</a></div>
   </div>
 </section>
 
-<!-- Tipos de proyecto -->
+<!-- Project types -->
 <section class="section" style="background:var(--surface)">
   <div class="container">
     <div class="center" style="margin-bottom:44px">
-      <div class="chip">Tipos de proyecto</div>
-      <h2 style="margin-top:16px">Desde una reparación hasta la casa completa</h2>
-      <p class="lead">Todos los estimados son gratis y sin compromiso.</p>
+      <div class="chip">Project types</div>
+      <h2 style="margin-top:16px">From a single repair to the whole house</h2>
+      <p class="lead">Every estimate is free and comes with no obligation.</p>
     </div>
     <div class="grid grid-3" style="align-items:start">
-      <?php foreach ($TIPOS as $p): ?>
+      <?php foreach ($TYPES as $p): ?>
         <div class="plan<?= $p[3] ? ' best' : '' ?>">
-          <?php if ($p[3]): ?><span class="tag">Más solicitado</span><?php endif; ?>
+          <?php if ($p[3]): ?><span class="tag">Most requested</span><?php endif; ?>
           <h3 style="font-size:22px;margin:0"><?= htmlspecialchars($p[0]) ?></h3>
           <p class="muted" style="font-size:13.5px;margin:4px 0 0"><?= htmlspecialchars($p[1]) ?></p>
           <div style="font-family:var(--font-head);font-weight:800;font-size:22px;color:var(--accent);margin:14px 0"><?= htmlspecialchars($p[4]) ?></div>
           <ul><?php foreach ($p[2] as $f): ?><li><?= htmlspecialchars($f) ?></li><?php endforeach; ?></ul>
-          <a href="contacto.php" class="btn<?= $p[3] ? '' : ' btn--ghost' ?>" style="width:100%;justify-content:center">Solicitar</a>
+          <a href="contact.php" class="btn<?= $p[3] ? '' : ' btn--ghost' ?>" style="width:100%;justify-content:center">Request</a>
         </div>
       <?php endforeach; ?>
     </div>
   </div>
 </section>
 
-<!-- Testimonios -->
+<!-- Testimonials -->
 <section class="section">
   <div class="container">
-    <div class="center" style="margin-bottom:36px"><div class="chip">Clientes</div><h2 style="margin-top:16px">Lo que dicen del trabajo</h2></div>
+    <div class="center" style="margin-bottom:36px"><div class="chip">Clients</div><h2 style="margin-top:16px">What people say about the work</h2></div>
     <div class="grid grid-3">
-      <?php foreach ($TESTIMONIOS as $t): ?>
+      <?php foreach ($TESTIMONIALS as $t): ?>
         <div class="tst">
           <div class="stars">★★★★★</div>
           <p class="q">“<?= htmlspecialchars($t[0]) ?>”</p>
@@ -229,7 +229,7 @@ require __DIR__ . '/inc/head.php';
 <!-- FAQ -->
 <section class="section" style="background:var(--surface)">
   <div class="container" style="max-width:800px">
-    <div class="center" style="margin-bottom:32px"><div class="chip">Preguntas</div><h2 style="margin-top:16px">Dudas frecuentes</h2></div>
+    <div class="center" style="margin-bottom:32px"><div class="chip">Questions</div><h2 style="margin-top:16px">Frequently asked</h2></div>
     <?php foreach ($FAQ as $f): ?>
       <details class="faq"><summary><?= htmlspecialchars($f[0]) ?></summary><p class="muted" style="padding-bottom:18px;margin:0"><?= htmlspecialchars($f[1]) ?></p></details>
     <?php endforeach; ?>
@@ -239,11 +239,11 @@ require __DIR__ . '/inc/head.php';
 <!-- CTA -->
 <section class="section">
   <div class="container panel center blueprint" style="padding:clamp(34px,5vw,60px)">
-    <h2 style="margin-bottom:10px">¿Listo para tu estimado?</h2>
-    <p class="lead" style="margin:0 auto 26px">Visitamos la obra, medimos y te entregamos el presupuesto por partidas en 48 a 72 horas. Gratis.</p>
+    <h2 style="margin-bottom:10px">Ready for your estimate?</h2>
+    <p class="lead" style="margin:0 auto 26px">We visit the site, take measurements and hand you a line-item budget within 48 to 72 hours. Free.</p>
     <div class="btn-row" style="justify-content:center">
-      <a href="contacto.php" class="btn btn--lg">Pedir estimado gratis</a>
-      <?php if (!empty($SITE['phone'])): ?><a href="tel:<?= htmlspecialchars($SITE['phone_tel']) ?>" class="btn btn--ghost btn--lg">Llamar <?= htmlspecialchars($SITE['phone']) ?></a><?php endif; ?>
+      <a href="contact.php" class="btn btn--lg">Get a free estimate</a>
+      <?php if (!empty($SITE['phone'])): ?><a href="tel:<?= htmlspecialchars($SITE['phone_tel']) ?>" class="btn btn--ghost btn--lg">Call <?= htmlspecialchars($SITE['phone']) ?></a><?php endif; ?>
     </div>
   </div>
 </section>

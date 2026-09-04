@@ -1,8 +1,8 @@
 <?php
 require_once __DIR__ . '/inc/config.php';
-$title  = 'Proyectos — ' . $SITE['name'];
-$desc   = 'Obras entregadas por M&D Buildings LLC: remodelaciones, adiciones, obra nueva, concreto y exteriores.';
-$active = 'proyectos';
+$title  = 'Projects — ' . $SITE['name'];
+$desc   = 'Work delivered by M&D Buildings LLC: remodels, additions, new construction, concrete and exteriors.';
+$active = 'projects';
 
 $extra_css = '
 .pj{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
@@ -17,25 +17,25 @@ require __DIR__ . '/inc/head.php';
 ?>
 <section class="hero">
   <div class="container">
-    <div class="chip">Proyectos</div>
-    <h1 style="margin:18px 0 0;max-width:17ch">Obras entregadas, con nombre y alcance</h1>
-    <p class="lead">Una muestra del trabajo. Si quieres ver una obra terminada en persona, coordinamos la visita con el cliente.</p>
+    <div class="chip">Projects</div>
+    <h1 style="margin:18px 0 0;max-width:17ch">Delivered work, with a name and a scope</h1>
+    <p class="lead">A sample of the work. If you want to see a finished job in person, we will arrange the visit with the homeowner.</p>
   </div>
 </section>
 
 <section class="section--tight">
   <div class="container grid grid-3">
-    <?php foreach ($PROYECTOS as $p): ?>
+    <?php foreach ($PROJECTS as $p): ?>
       <article class="pj">
         <div class="im blueprint">
           <span class="badge"><?= htmlspecialchars($p[1]) ?></span>
-          <span class="badge<?= $p[3] === 'En obra' ? ' on' : '' ?>"><?= htmlspecialchars($p[3]) ?></span>
+          <span class="badge<?= $p[3] === 'In progress' ? ' on' : '' ?>"><?= htmlspecialchars($p[3]) ?></span>
         </div>
         <div class="bd">
           <h3 style="font-size:19px;margin:0 0 8px"><?= htmlspecialchars($p[0]) ?></h3>
           <p class="muted" style="font-size:14.5px;margin:0 0 18px;flex:1"><?= htmlspecialchars($p[2]) ?></p>
           <div style="display:flex;justify-content:space-between;font-size:13px">
-            <span class="muted">Avance</span>
+            <span class="muted">Progress</span>
             <span style="font-family:var(--font-head);font-weight:700;color:var(--accent)"><?= htmlspecialchars($p[4]) ?></span>
           </div>
           <div class="track"><div class="fill" style="width:<?= htmlspecialchars($p[4]) ?>"></div></div>
@@ -55,9 +55,9 @@ require __DIR__ . '/inc/head.php';
 
 <section class="section">
   <div class="container panel center blueprint" style="padding:clamp(34px,5vw,56px)">
-    <h2 style="margin-bottom:10px">El siguiente proyecto puede ser el tuyo</h2>
-    <p class="lead" style="margin:0 auto 24px">Estimado gratis, por partidas y con fecha de entrega por escrito.</p>
-    <a href="contacto.php" class="btn btn--lg">Pedir estimado gratis</a>
+    <h2 style="margin-bottom:10px">The next project could be yours</h2>
+    <p class="lead" style="margin:0 auto 24px">A free line-item estimate with the completion date in writing.</p>
+    <a href="contact.php" class="btn btn--lg">Get a free estimate</a>
   </div>
 </section>
 <?php require __DIR__ . '/inc/footer.php'; ?>

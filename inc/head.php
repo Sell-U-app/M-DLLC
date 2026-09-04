@@ -174,7 +174,7 @@ details.faq[open] summary::after{content:"2"}
 </style>
 </head>
 <body>
-<a href="#main" style="position:absolute;left:-9999px;top:0;background:var(--primary);color:var(--primary-ink);padding:12px 20px;z-index:100;">Ir al contenido</a>
+<a href="#main" style="position:absolute;left:-9999px;top:0;background:var(--primary);color:var(--primary-ink);padding:12px 20px;z-index:100;">Skip to content</a>
 <?php if (!empty($SITE['phone']) || !empty($SITE['hours'])): ?>
 <div class="topbar">
   <div class="container">
@@ -187,7 +187,7 @@ details.faq[open] summary::after{content:"2"}
 </div>
 <?php endif; ?>
 <header class="site-header">
-  <nav class="nav container" aria-label="Principal">
+  <nav class="nav container" aria-label="Main">
     <a href="index.php" class="brand">
       <?php if (!empty($SITE['logo'])): ?>
         <img src="uploads/<?= htmlspecialchars($SITE['logo']) ?>" alt="<?= htmlspecialchars($SITE['name']) ?>">
@@ -196,7 +196,7 @@ details.faq[open] summary::after{content:"2"}
       <?php endif; ?>
     </a>
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
-    <label for="nav-toggle" class="nav-burger" aria-label="Abrir menú" role="button" tabindex="0">
+    <label for="nav-toggle" class="nav-burger" aria-label="Open menu" role="button" tabindex="0">
       <svg class="ic-open" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       <svg class="ic-close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </label>
@@ -205,7 +205,7 @@ details.faq[open] summary::after{content:"2"}
         <a href="<?= htmlspecialchars($item['url']) ?>"<?= $active === $key ? ' aria-current="page"' : '' ?>><?= htmlspecialchars($item['label']) ?></a>
       <?php endforeach; ?>
       <?php if (!empty($SITE['cta_label'])): ?>
-        <a href="<?= htmlspecialchars($SITE['cta_url'] ?? 'contacto.php') ?>" class="btn"><?= htmlspecialchars($SITE['cta_label']) ?></a>
+        <a href="<?= htmlspecialchars($SITE['cta_url'] ?? 'contact.php') ?>" class="btn"><?= htmlspecialchars($SITE['cta_label']) ?></a>
       <?php endif; ?>
     </div>
   </nav>

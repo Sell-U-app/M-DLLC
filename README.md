@@ -1,65 +1,94 @@
-# M&D Buildings LLC — sitio web
+# M&D Buildings LLC — website
 
-Sitio en PHP plano (sin framework, sin build) basado en la plantilla Sell-U
-`construccion/10-timelapse-obra`. Corre igual en Railway (Docker) y en un
-hosting compartido tipo NameCheap.
+Plain PHP site (no framework, no build step) based on the Sell-U template
+`construccion/10-timelapse-obra`. Runs the same on Railway (Docker) and on
+shared hosting such as NameCheap. Content is in English.
 
-## Estructura
+## Structure
 
 ```
-index.php        Home: hero con panel de avance, servicios, proceso, casos, FAQ
-servicios.php    Detalle de los 6 servicios
-proyectos.php    Grid de obras entregadas
-contacto.php     Formulario de estimado (mail() + respaldo CSV)
-inc/config.php   ÚNICO archivo a editar: textos, colores, contacto, listas
-inc/head.php     <head>, mini design-system CSS, topbar y navegación
-inc/footer.php   Footer, motor de animaciones y botón flotante de WhatsApp
-inc/mailer.php   Validación, honeypot, envío y log de leads
-uploads/         Logos y favicon
-storage/         leads.csv (se crea solo, ignorado por git)
+index.php           Home: hero with progress panel, services, process, cases, FAQ
+services.php        The six services in detail
+projects.php        Grid of delivered work
+contact.php         Estimate request form (mail() + CSV fallback)
+privacy.php         ┐
+terms.php           │ Policy pages. Each one is three lines; the content
+cookies.php         │ lives in inc/legal.php and is rendered by inc/legal-view.php
+accessibility.php   ┘
+inc/config.php      THE file to edit: copy, colors, contact details, lists
+inc/legal.php       Policy copy for all four legal pages
+inc/legal-view.php  Shared renderer for policy pages (table of contents, anchors)
+inc/head.php        <head>, mini design system, top bar and navigation
+inc/footer.php      Footer, reveal/carousel engine and floating WhatsApp button
+inc/mailer.php      Validation, honeypot, mail() and lead log
+uploads/            Logos and favicon
+storage/            leads.csv (created automatically, git-ignored)
 ```
 
-## Editar el contenido
+## Editing content
 
-Todo el contenido vive en `inc/config.php`:
+Everything lives in `inc/config.php`:
 
-- `$SITE` — nombre, teléfono, email, WhatsApp, dirección, horario
-- `$THEME` — paleta (tomada del logo: `#13273D` azul noche, `#F0A21B` ámbar)
-- `$SERVICIOS`, `$PROCESO`, `$STATS`, `$PROYECTOS`, `$TIPOS`, `$TESTIMONIOS`, `$FAQ`
+- `$SITE` — name, phone, email, WhatsApp, address, hours
+- `$THEME` — palette (from the logo: `#13273D` night navy, `#F0A21B` amber)
+- `$NAV`, `$LEGAL_NAV` — menus
+- `$SERVICES`, `$PROCESS`, `$STATS`, `$PROJECTS`, `$TYPES`, `$TESTIMONIALS`, `$FAQ`
 
-**Pendiente antes de publicar:** reemplazar teléfono, email, WhatsApp y dirección
-(hoy son placeholders `000`), y confirmar las cifras de `$STATS` y los testimonios.
+## Before publishing
 
-## Fotos
+**Contact:** phone, email, WhatsApp and address are placeholders (`000`).
 
-Las áreas de imagen usan un patrón CSS tipo plano (`.blueprint`). Para poner
-fotos reales, súbelas a `uploads/` y cambia el `<div class="im blueprint">`
-por `<img src="uploads/mi-foto.jpg" alt="...">` en la página correspondiente.
+**Legal:** `inc/legal.php` holds plain-language policy templates, not legal
+advice. Have counsel licensed in your state review them, and fill in these
+`$SITE` keys first:
 
-## Correr en local
+| Key | What it is |
+|---|---|
+| `state` | State of formation and governing law (currently `Florida`) |
+| `legal_address` | Full mailing address shown in the policies |
+| `legal_email` | Address for privacy and legal requests |
+| `legal_updated` | "Last updated" date on every policy page |
+
+The Cookie Policy states the site sets no advertising or analytics cookies.
+That is true as published. **If you add Google Analytics, Meta Pixel or any
+embed, update that page and add a consent banner before the tags go live.**
+
+**Content:** the figures in `$STATS` (150+ projects, 12 years), the
+testimonials and the project list are filler written to populate the layout.
+Replace them with real ones. The Terms of Use say figures on the site are
+illustrative, which covers you while they are placeholders, but do not leave
+invented testimonials on a live site.
+
+## Photos
+
+Image areas use a CSS blueprint pattern (`.blueprint`). For real photos, drop
+them in `uploads/` and replace `<div class="im blueprint">` with
+`<img src="uploads/my-photo.jpg" alt="...">`.
+
+## Run locally
 
 ```bash
 php -S localhost:8000
 ```
 
-## Deploy en Railway
+## Deploy on Railway
 
-El repo trae `Dockerfile` y `railway.json`. En Railway:
+The repo ships `Dockerfile` and `railway.json`. New Project → Deploy from
+GitHub repo; Railway builds the Dockerfile on its own. Optionally set
+`SITE_URL=https://yourdomain.com` so canonical and OG tags are correct.
 
-1. New Project → Deploy from GitHub repo → este repo.
-2. Railway detecta el Dockerfile y construye solo.
-3. Variables (opcional): `SITE_URL=https://tudominio.com` para canonical y OG.
-4. Settings → Networking → Generate Domain, o conecta el dominio propio.
+Apache listens on `$PORT`. The `CMD` disables `mpm_event`/`mpm_worker` **at
+runtime**: on Railway the `php:*-apache` image starts with two MPMs loaded and
+Apache aborts with `More than one MPM loaded` if this is not fixed there.
 
-Apache escucha en `$PORT`, que Railway inyecta automáticamente.
+> `mail()` does not work inside the container. The form stores every lead in
+> `storage/leads.csv` and confirms to the user. To actually receive email,
+> connect an SMTP provider (Resend, Brevo, SendGrid). Container storage is
+> ephemeral: if you rely on the CSV, mount a volume at
+> `/var/www/html/storage`.
 
-> `mail()` no funciona en el contenedor de Railway. El formulario guarda cada
-> lead en `storage/leads.csv` y muestra confirmación al usuario. Para recibir
-> los correos de verdad hay que conectar un SMTP (Resend, Brevo, SendGrid).
-> El almacenamiento del contenedor es efímero: si vas a depender del CSV,
-> monta un volumen en `/var/www/html/storage`.
+## Deploy on NameCheap
 
-## Deploy en NameCheap
-
-Sube el contenido de la carpeta (sin `Dockerfile`, `railway.json`, `.dockerignore`)
-a `public_html/`. Permisos: carpetas 755, archivos 644. Ahí `mail()` sí funciona.
+Upload the folder contents (minus `Dockerfile`, `railway.json`,
+`.dockerignore`) to `public_html/`. Directories 755, files 644. `mail()` works
+there.

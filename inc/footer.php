@@ -12,13 +12,19 @@
         <p style="opacity:.85;font-size:14px;margin:0"><?= htmlspecialchars($SITE['tagline'] ?? '') ?></p>
       </div>
       <div>
-        <div style="font-family:var(--font-head);font-weight:700;font-size:14px;margin-bottom:12px;opacity:.7">Navegación</div>
+        <div style="font-family:var(--font-head);font-weight:700;font-size:14px;margin-bottom:12px;opacity:.7">Navigation</div>
         <?php foreach (($NAV ?? []) as $item): ?>
           <a href="<?= htmlspecialchars($item['url']) ?>" style="color:var(--ink);text-decoration:none;font-size:14px;display:block;margin-bottom:9px;opacity:.8"><?= htmlspecialchars($item['label']) ?></a>
         <?php endforeach; ?>
       </div>
       <div>
-        <div style="font-family:var(--font-head);font-weight:700;font-size:14px;margin-bottom:12px;opacity:.7">Contacto</div>
+        <div style="font-family:var(--font-head);font-weight:700;font-size:14px;margin-bottom:12px;opacity:.7">Legal</div>
+        <?php foreach (($LEGAL_NAV ?? []) as $item): ?>
+          <a href="<?= htmlspecialchars($item['url']) ?>" style="color:var(--ink);text-decoration:none;font-size:14px;display:block;margin-bottom:9px;opacity:.8"><?= htmlspecialchars($item['label']) ?></a>
+        <?php endforeach; ?>
+      </div>
+      <div>
+        <div style="font-family:var(--font-head);font-weight:700;font-size:14px;margin-bottom:12px;opacity:.7">Contact</div>
         <?php if (!empty($SITE['email'])): ?><a href="mailto:<?= htmlspecialchars($SITE['email']) ?>" style="color:var(--primary);text-decoration:none;font-size:14px;display:block;margin-bottom:9px;font-weight:600"><?= htmlspecialchars($SITE['email']) ?></a><?php endif; ?>
         <?php if (!empty($SITE['phone'])): ?><a href="tel:<?= htmlspecialchars($SITE['phone_tel'] ?? $SITE['phone']) ?>" style="color:var(--primary);text-decoration:none;font-size:14px;display:block;margin-bottom:9px;font-weight:600"><?= htmlspecialchars($SITE['phone']) ?></a><?php endif; ?>
         <?php if (!empty($SITE['whatsapp'])): ?><a href="https://wa.me/<?= htmlspecialchars($SITE['whatsapp']) ?>" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:none;font-size:14px;display:block;margin-bottom:9px;font-weight:600">WhatsApp</a><?php endif; ?>
@@ -26,8 +32,8 @@
       </div>
     </div>
     <div style="border-top:1px solid var(--border);margin-top:34px;padding-top:20px;display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;align-items:center">
-      <p style="margin:0;font-size:12px;opacity:.85">&copy; <?= date('Y') ?> <?= htmlspecialchars($SITE['name']) ?>. Todos los derechos reservados.</p>
-      <p style="margin:0;font-size:12px;opacity:.9">Desarrollado por <a href="https://sellu.co" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:underline;font-weight:700">Sell-U Latam</a></p>
+      <p style="margin:0;font-size:12px;opacity:.85">&copy; <?= date('Y') ?> <?= htmlspecialchars($SITE['name']) ?>. All rights reserved.</p>
+      <p style="margin:0;font-size:12px;opacity:.9">Built by <a href="https://sellu.co" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:underline;font-weight:700">Sell-U Latam</a></p>
     </div>
   </div>
 </footer>
@@ -105,7 +111,7 @@
     if (c.children.length < 2) return;
     var wrap = document.createElement('div'); wrap.className = 'carr-wrap';
     c.parentNode.insertBefore(wrap, c); wrap.appendChild(c);
-    function mk(t,cl){ var b=document.createElement('button'); b.type='button'; b.className='carr-btn '+cl; b.innerHTML=t; b.setAttribute('aria-label', cl==='carr-prev'?'Anterior':'Siguiente'); return b; }
+    function mk(t,cl){ var b=document.createElement('button'); b.type='button'; b.className='carr-btn '+cl; b.innerHTML=t; b.setAttribute('aria-label', cl==='carr-prev'?'Previous':'Next'); return b; }
     var prev=mk('‹','carr-prev'), next=mk('›','carr-next');
     wrap.appendChild(prev); wrap.appendChild(next);
     function step(){ var el=c.children[0]; return el ? el.getBoundingClientRect().width + 20 : 300; }
