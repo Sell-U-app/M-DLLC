@@ -22,7 +22,8 @@ $active = 'contacto';
 $extra_css = '
 .cgrid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,4vw,52px);align-items:start}
 .cline{display:flex;gap:12px;align-items:center;padding:14px 0;border-top:1px solid var(--border);text-decoration:none;color:var(--ink)}
-.cline b{font-family:var(--font-head);font-size:15px;font-weight:600}
+.cline b{font-family:var(--font-head);font-size:15px;font-weight:600;overflow-wrap:anywhere}
+.cline>span:last-child{min-width:0}
 .cline .ic{width:38px;height:38px;flex:0 0 38px;border-radius:10px;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:17px}
 @media(max-width:880px){.cgrid{grid-template-columns:1fr}}
 ';

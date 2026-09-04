@@ -160,7 +160,7 @@ a{color:var(--primary)}
   border:1px solid var(--border)}
 .topbar{background:var(--surface);border-bottom:1px solid var(--border);font-size:13px}
 .topbar .container{display:flex;flex-wrap:wrap;gap:6px 22px;justify-content:space-between;align-items:center;padding-top:9px;padding-bottom:9px}
-.topbar a{color:var(--ink);text-decoration:none;font-weight:600}
+.topbar a{color:var(--ink);text-decoration:none;font-weight:600;overflow-wrap:anywhere}
 .topbar a:hover{color:var(--primary)}
 .topbar .muted{font-size:13px}
 details.faq{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:0 clamp(16px,3vw,22px);margin-bottom:12px}
