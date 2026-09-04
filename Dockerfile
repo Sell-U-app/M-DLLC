@@ -1,10 +1,13 @@
 FROM php:8.3-apache
 
-# Apache: .htaccess activo + modulos que usa el sitio
-RUN a2enmod rewrite headers expires deflate \
+# Un solo MPM cargado: a2enmod puede arrastrar mpm_event como dependencia y
+# Apache aborta con "More than one MPM loaded". Se deja explicitamente prefork.
+RUN a2dismod mpm_event mpm_worker 2>/dev/null || true; \
+    a2enmod mpm_prefork rewrite headers expires deflate \
  && sed -ri 's!<Directory /var/www/>!<Directory /var/www/>\n\tAllowOverride All!' /etc/apache2/apache2.conf \
  && echo 'ServerName localhost' > /etc/apache2/conf-available/servername.conf \
- && a2enconf servername
+ && a2enconf servername \
+ && ls /etc/apache2/mods-enabled/ | grep -c '^mpm_.*\.load$' | grep -qx 1
 
 COPY . /var/www/html/
 
