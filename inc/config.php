@@ -3,10 +3,9 @@
  * M&D Buildings LLC — single source of truth for the site.
  * Edit copy and contact details HERE. Do not touch the templates.
  *
- * PENDIENTE (dato real que falta): $SITE['address'] y $SITE['legal_address'],
- * la direccion operativa de la empresa; y $TEAM, los perfiles reales de las
- * personas responsables. Mientras esten vacios el sitio simplemente no los
- * muestra, en vez de inventarlos.
+ * El sitio no publica perfiles personales de socios ni de nadie del equipo:
+ * es una decision del cliente, no un dato pendiente. No agregar una seccion
+ * de personas.
  */
 
 $SITE = [
@@ -103,12 +102,6 @@ $AUDIENCES = [
     ['Contractors and trades',
         'We work with licensed trades in the counties where we buy. If you run a crew and do careful work, we would like to know you.'],
 ];
-
-/**
- * The people responsible, with their role. Left empty on purpose: no invented
- * profiles. Shape: ['name' => '', 'role' => '']
- */
-$TEAM = [];
 
 /** Contact form subjects: [value, label] */
 $SUBJECTS = [

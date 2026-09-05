@@ -110,16 +110,6 @@ require __DIR__ . '/inc/head.php';
     <h2 style="margin:16px 0 14px">The company</h2>
     <p class="muted" style="font-size:16px;margin:0 0 14px">M&amp;D Buildings LLC is a Pennsylvania limited liability company. We acquire residential property with our own capital, improve it, and return it to the market.</p>
     <p class="muted" style="font-size:16px;margin:0">The company is part of a group dedicated to real estate investment and development in the United States.</p>
-    <?php if (!empty($TEAM)): ?>
-      <div class="grid grid-3" style="margin-top:36px">
-        <?php foreach ($TEAM as $m): ?>
-          <div class="aud">
-            <h3 style="font-size:18px;margin:0 0 4px"><?= htmlspecialchars($m['name']) ?></h3>
-            <p class="muted" style="font-size:14px;margin:0"><?= htmlspecialchars($m['role']) ?></p>
-          </div>
-        <?php endforeach; ?>
-      </div>
-    <?php endif; ?>
    </div>
   </div>
 </section>
