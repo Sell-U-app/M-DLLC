@@ -27,7 +27,6 @@
         <div style="font-family:var(--font-head);font-weight:700;font-size:14px;margin-bottom:12px;opacity:.7">Contact</div>
         <?php if (!empty($SITE['email'])): ?><a href="mailto:<?= htmlspecialchars($SITE['email']) ?>" style="color:var(--primary);text-decoration:none;font-size:14px;display:block;margin-bottom:9px;font-weight:600"><?= htmlspecialchars($SITE['email']) ?></a><?php endif; ?>
         <?php if (!empty($SITE['phone'])): ?><a href="tel:<?= htmlspecialchars($SITE['phone_tel'] ?? $SITE['phone']) ?>" style="color:var(--primary);text-decoration:none;font-size:14px;display:block;margin-bottom:9px;font-weight:600"><?= htmlspecialchars($SITE['phone']) ?></a><?php endif; ?>
-        <?php if (!empty($SITE['whatsapp'])): ?><a href="https://wa.me/<?= htmlspecialchars($SITE['whatsapp']) ?>" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:none;font-size:14px;display:block;margin-bottom:9px;font-weight:600">WhatsApp</a><?php endif; ?>
         <?php if (!empty($SITE['address'])): ?><div style="opacity:.85;font-size:14px"><?= htmlspecialchars($SITE['address']) ?></div><?php endif; ?>
       </div>
     </div>
@@ -37,11 +36,6 @@
     </div>
   </div>
 </footer>
-<?php if (!empty($SITE['whatsapp'])): ?>
-<a class="wa-float" href="https://wa.me/<?= htmlspecialchars($SITE['whatsapp']) ?>" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.16c-.25.69-1.44 1.32-1.99 1.36-.53.05-1.02.23-3.43-.72-2.9-1.14-4.73-4.1-4.87-4.29-.14-.19-1.16-1.54-1.16-2.94s.73-2.09 1-2.37c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.97.88 2.11.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.37-.42.49-.14.14-.28.29-.12.57.16.28.72 1.18 1.54 1.91 1.06.94 1.95 1.24 2.23 1.38.28.14.44.12.6-.07.17-.19.69-.8.87-1.08.19-.28.37-.23.62-.14.25.09 1.65.78 1.93.92.28.14.47.21.54.33.07.12.07.68-.18 1.37Z"/></svg>
-</a>
-<?php endif; ?>
 
 <?php /* ── Motor de animaciones + carruseles (global, sin dependencias) ── */ ?>
 <style>

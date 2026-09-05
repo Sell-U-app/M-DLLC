@@ -16,9 +16,10 @@ $SITE = [
 
     // --- Contact (REPLACE with the real details) ---
     'email'      => 'info@mdbuildingsllc.com',
-    'phone'      => '+1 (000) 000-0000',
-    'phone_tel'  => '+10000000000',
-    'whatsapp'   => '10000000000',
+    // Contacto solo por formulario y correo: sin telefono publico ni WhatsApp.
+    // Para publicar un telefono, rellenar ambos campos con el numero real.
+    'phone'      => '',
+    'phone_tel'  => '',
     'address'    => 'United States',
     'hours'      => 'Monday to Saturday, 7:00 am – 6:00 pm',
     'license'    => 'Licensed and insured',

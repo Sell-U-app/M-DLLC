@@ -29,8 +29,10 @@ $ld = [
     'name'     => $SITE['name'],
     'url'      => $base_url . '/',
     'email'    => $SITE['email'] ?? '',
-    'telephone'=> $SITE['phone_tel'] ?? '',
 ];
+if (!empty($SITE['phone_tel'])) {
+    $ld['telephone'] = $SITE['phone_tel'];
+}
 if (!empty($SITE['address'])) {
     $ld['address'] = ['@type' => 'PostalAddress', 'streetAddress' => $SITE['address']];
 }
@@ -168,7 +170,6 @@ details.faq summary{cursor:pointer;padding:18px 0;font-family:var(--font-head);f
 details.faq summary::-webkit-details-marker{display:none}
 details.faq summary::after{content:"+";color:var(--accent);font-size:22px;line-height:1}
 details.faq[open] summary::after{content:"2"}
-.wa-float{position:fixed;right:16px;bottom:16px;z-index:60;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.45)}
 @media(max-width:620px){.topbar .container{justify-content:center;text-align:center}}
 <?= $extra_css ?>
 </style>

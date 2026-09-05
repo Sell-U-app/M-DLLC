@@ -30,7 +30,7 @@ $LEGAL = [
         ['Information you give us', [
             'When you submit our contact form, we collect what you type into it:',
             ['Your name', 'Your email address', 'Your phone number', 'The details you write about your project or request', 'Any other information you choose to include'],
-            'We ask only for what we need to respond to you. You are never required to use the form; you can call or email us instead.',
+            'We ask only for what we need to respond to you. You are never required to use the form; you can email us instead.',
         ]],
         ['Information collected automatically', [
             'Our web server keeps standard access logs, which may include your IP address, browser type, the pages you request and the date and time of the request. These logs are used to keep the site running and secure, not to build a profile of you.',

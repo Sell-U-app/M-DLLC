@@ -41,9 +41,6 @@ require __DIR__ . '/inc/head.php';
         <?php if (!empty($SITE['phone'])): ?>
           <a class="cline" href="tel:<?= htmlspecialchars($SITE['phone_tel']) ?>"><span class="ic">&#9742;</span><span><b><?= htmlspecialchars($SITE['phone']) ?></b><br><span class="muted" style="font-size:13px">Call us</span></span></a>
         <?php endif; ?>
-        <?php if (!empty($SITE['whatsapp'])): ?>
-          <a class="cline" href="https://wa.me/<?= htmlspecialchars($SITE['whatsapp']) ?>" target="_blank" rel="noopener"><span class="ic">&#128172;</span><span><b>WhatsApp</b><br><span class="muted" style="font-size:13px">Fastest reply</span></span></a>
-        <?php endif; ?>
         <?php if (!empty($SITE['email'])): ?>
           <a class="cline" href="mailto:<?= htmlspecialchars($SITE['email']) ?>"><span class="ic">&#9993;</span><span><b><?= htmlspecialchars($SITE['email']) ?></b><br><span class="muted" style="font-size:13px">Email us</span></span></a>
         <?php endif; ?>
@@ -57,7 +54,7 @@ require __DIR__ . '/inc/head.php';
       <?php if ($sent === true): ?>
         <div class="notice notice--ok">We got your request. We will reach out today to schedule the visit.</div>
       <?php elseif ($sent === false): ?>
-        <div class="notice notice--err">We could not send your message. Call us at <?= htmlspecialchars($SITE['phone']) ?> or email <?= htmlspecialchars($SITE['email']) ?>.</div>
+        <div class="notice notice--err">We could not send your message. Please email us at <?= htmlspecialchars($SITE['email']) ?>.</div>
       <?php elseif ($sent === null && $_SERVER['REQUEST_METHOD'] === 'POST'): ?>
         <div class="notice notice--err">Missing details: name, phone and a description of the work are required.</div>
       <?php endif; ?>
