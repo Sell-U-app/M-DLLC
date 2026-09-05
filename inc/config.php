@@ -21,17 +21,17 @@ $SITE = [
     'email'      => 'info@mdbuildings.us',
     'phone'      => '',
     'phone_tel'  => '',
-    'address'    => '',   // <- direccion operativa real, pendiente
+    'address'    => '502 W 7th St Ste 100, Erie, PA 16502',   // oficina registrada
     'hours'      => '',
     'license'    => '',
 
     // --- Legal ---
     'state'         => 'Pennsylvania',   // state of formation and governing law
-    'legal_address' => '',               // <- misma direccion, pendiente
+    'legal_address' => '502 W 7th St Ste 100, Erie, PA 16502',
     'legal_email'   => 'legal@mdbuildings.us',
     'legal_updated' => 'September 4, 2026',
 
-    'form_to'     => 'info@mdbuildings.us',
+    'form_to'     => getenv('MAIL_TO') ?: 'amml4225@hotmail.com',   // destino del formulario
     'og_default'  => 'logo-stacked.png',
     'logo'        => 'logo-horizontal-light.png',
     'logo_footer' => 'logo-stacked-light.png',
@@ -97,7 +97,7 @@ $PROPERTIES = [];
 /** Who we work with: [audience, text] */
 $AUDIENCES = [
     ['Property owners',
-        'If you own a home in Pennsylvania and are thinking about selling, we may be the buyer. We purchase directly and on our own timeline, which means no listing, no showings and no commission — we are the buyer, not an agent. The sale closes at a title company like any other transaction.'],
+        'If you own a home in Pennsylvania and are thinking about selling, we may be the buyer. We purchase directly and on our own timeline, which means the house never goes on the market, there are no showings and there is no commission — we are the buyer, not an agent. The sale closes at a title company like any other transaction.'],
     ['Brokers and agents',
         'We are a straightforward counterparty. We look at what you bring, we answer quickly, and we do not renegotiate after diligence.'],
     ['Contractors and trades',

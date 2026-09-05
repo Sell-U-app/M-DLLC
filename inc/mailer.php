@@ -19,6 +19,7 @@
  * y muestra el estado con $sent (true/false/null).
  */
 require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/smtp.php';
 
 function fclean($v){ return trim(htmlspecialchars(strip_tags((string)$v), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')); }
 
@@ -58,14 +59,23 @@ function handle_form(array $fields, array $required = []): array {
     $domain  = parse_url($SITE['base_url'] ?? 'https://example.com', PHP_URL_HOST) ?: 'example.com';
     $replyTo = filter_var($old['email'] ?? '', FILTER_VALIDATE_EMAIL) ?: $to;
 
-    $headers  = 'From: ' . ($SITE['name'] ?? 'Web') . ' <no-reply@' . $domain . ">\r\n";
-    $headers .= "Reply-To: $replyTo\r\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    // 1) SMTP autenticado si esta configurado por variables de entorno. Es la
+    //    unica via que funciona en Railway: el contenedor no trae MTA.
+    $ok = false;
+    if (smtp_configured()) {
+        $err = null;
+        $ok  = smtp_send($to, $subject, $body, $replyTo, $err);
+        if (!$ok) error_log('[form] ' . $err);
+    } else {
+        // 2) mail() nativo, para hosting tradicional tipo NameCheap.
+        $headers  = 'From: ' . ($SITE['name'] ?? 'Web') . ' <no-reply@' . $domain . ">\r\n";
+        $headers .= "Reply-To: $replyTo\r\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+        $ok = @mail($to, $subject, $body, $headers);
+        if (!$ok) error_log('[form] mail() fallo y SMTP_HOST no esta definido');
+    }
 
-    $ok = @mail($to, $subject, $body, $headers);
-
-    // Respaldo: en Railway/Docker mail() no existe. Guardamos el lead en CSV
-    // para no perder nunca un contacto, y damos el envio por bueno.
+    // 3) Respaldo siempre: el lead queda en CSV aunque el envio falle.
     $logged = log_lead($fields, $old);
 
     return [(bool)$ok || $logged, $old];

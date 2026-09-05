@@ -29,7 +29,7 @@ $LEGAL = [
         ]],
         ['Information you give us', [
             'When you submit our contact form, we collect what you type into it:',
-            ['Your name', 'Your email address', 'Your phone number', 'The details you write about your project or request', 'Any other information you choose to include'],
+            ['Your name', 'Your email address', 'The address of a property, when you choose to give it', 'The details you write in your message', 'Any other information you choose to include'],
             'We ask only for what we need to respond to you. You are never required to use the form; you can email us instead.',
         ]],
         ['Information collected automatically', [
@@ -45,10 +45,10 @@ $LEGAL = [
         ]],
         ['Who we share it with', [
             'We share information only when we need to, and only with:',
-            ['Service providers who host the site, deliver our email or store our records, bound to use it only on our instructions', 'Subcontractors and suppliers involved in your specific project, limited to what the job requires', 'Professional advisers such as our accountant, insurer or attorney', 'Authorities, when the law requires it or to protect our legal rights'],
+            ['Service providers who host the site, deliver our email or store our records, bound to use it only on our instructions', 'Contractors, title companies and other parties involved in a transaction or in work on a property we own, limited to what is necessary', 'Professional advisers such as our accountant, insurer or attorney', 'Authorities, when the law requires it or to protect our legal rights'],
         ]],
         ['How long we keep it', [
-            'Inquiries that do not turn into a project are kept for up to 24 months and then deleted. Records tied to work we performed are kept for as long as our legal, tax, warranty and insurance obligations require.',
+            'Inquiries that do not lead to a transaction are kept for up to 24 months and then deleted. Records tied to a property we acquired are kept for as long as our legal and tax obligations require.',
         ]],
         ['Security', [
             'The site is served over HTTPS and access to submissions is limited to the people who need it. No method of transmission or storage is completely secure, so we cannot guarantee absolute security. Please do not send sensitive information such as government ID numbers, bank account details or payment card numbers through the contact form.',
@@ -80,15 +80,16 @@ $LEGAL = [
             "By using this website you agree to these Terms of Use. If you do not agree, please do not use the site.",
         ]],
         ['What this website is', [
-            'This site describes our services and lets you get in touch. It is general information, not a bid, a contract or professional advice for your specific property.',
-            'Nothing here creates a contractor–client relationship. That relationship starts only when both parties sign a written contract for a specific scope of work.',
+            'This site describes what our company does and lets you get in touch. It is general information, not an offer to buy or sell a property, and not legal, tax or investment advice.',
+            'Nothing here creates a binding agreement. Any purchase or sale of a property is agreed in a separate written contract signed by both parties and closes through a title company.',
         ]],
-        ['Estimates, prices and timelines', [
-            'Any price range, duration or figure shown on this site is illustrative. Real pricing depends on the site conditions, the scope, the materials and the permits, and is only binding when it appears in a written estimate signed by both parties.',
-            'Photos, renderings and progress figures shown on the site are illustrative of the type of work we do unless they are expressly identified as a specific completed project.',
+        ['Properties shown on this site', [
+            'Any property described on this site is a property we own. Details such as location, type, scope of work and status are given for general information and may change as the work progresses.',
+            'Nothing on this site is an offer, a solicitation or a commitment to buy or sell at any price, and no figures relating to the purchase or sale of a property are published here.',
         ]],
-        ['Licensing', [
-            "We hold the licenses and insurance required to perform the work we offer in the jurisdictions where we operate. Licensing requirements vary by state, county and municipality, and we do not perform work where we are not authorized to do so. Ask us for our current license and insurance certificates before signing anything.",
+        ['What we do', [
+            "$C is a real estate investment company. We acquire residential property with our own capital, improve it, and return it to the market, acting as principal in our own transactions.",
+            'We are not a real estate brokerage and we do not act as a broker or agent for any other party. We do not offer home improvement or construction services to the public. Renovation work on the properties we own is performed by licensed Pennsylvania contractors we retain, working under permit.',
         ]],
         ['Acceptable use', [
             'You agree not to:',
@@ -102,7 +103,7 @@ $LEGAL = [
         ]],
         ['Disclaimer of warranties', [
             'The site is provided "as is" and "as available". To the fullest extent permitted by law, we disclaim all warranties, express or implied, including merchantability, fitness for a particular purpose and non-infringement. We do not warrant that the site will be uninterrupted, error-free or free of harmful components.',
-            'This disclaimer applies to the website only. It does not affect the written warranty we give on work we actually perform under a signed contract.',
+            'This disclaimer applies to the website only. It does not affect the terms of any written contract signed with us.',
         ]],
         ['Limitation of liability', [
             "To the fullest extent permitted by law, $C and its owners, employees and contractors will not be liable for any indirect, incidental, special, consequential or punitive damages arising out of your use of this website, or for any loss of profits, revenue or data, even if we were advised such damages were possible. Our total liability arising from your use of the website will not exceed one hundred US dollars (US\$100).",
