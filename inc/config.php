@@ -1,40 +1,41 @@
 <?php
 /**
  * M&D Buildings LLC — single source of truth for the site.
- * Edit copy, colors and contact details HERE. Do not touch the templates.
+ * Edit copy and contact details HERE. Do not touch the templates.
  *
- * TODO (real data still pending): phone, email, address, license number,
- * state of formation and the figures in $STATS.
+ * PENDIENTE (dato real que falta): $SITE['address'] y $SITE['legal_address'],
+ * la direccion operativa de la empresa; y $TEAM, los perfiles reales de las
+ * personas responsables. Mientras esten vacios el sitio simplemente no los
+ * muestra, en vez de inventarlos.
  */
 
 $SITE = [
     'name'       => 'M&D Buildings LLC',
     'legal_name' => 'M&D Buildings LLC',
-    'tagline'    => 'We build and remodel with a clear price and the progress in plain sight.',
+    'entity'     => 'A Pennsylvania limited liability company',
+    'tagline'    => 'Residential real estate investment in Pennsylvania.',
     'lang'       => 'en',
-    'base_url'   => getenv('SITE_URL') ?: 'https://mdbuildingsllc.com',
+    'base_url'   => getenv('SITE_URL') ?: 'https://mdbuildings.us',
 
-    // --- Contact (REPLACE with the real details) ---
-    'email'      => 'info@mdbuildingsllc.com',
-    // Contacto solo por formulario y correo: sin telefono publico ni WhatsApp.
-    // Para publicar un telefono, rellenar ambos campos con el numero real.
+    // --- Contact: the form is the only channel. No phone, no WhatsApp. ---
+    'email'      => 'info@mdbuildings.us',
     'phone'      => '',
     'phone_tel'  => '',
-    'address'    => 'United States',
-    'hours'      => 'Monday to Saturday, 7:00 am – 6:00 pm',
-    'license'    => 'Licensed and insured',
+    'address'    => '',   // <- direccion operativa real, pendiente
+    'hours'      => '',
+    'license'    => '',
 
-    // --- Legal (REPLACE before publishing) ---
-    'state'         => 'Florida',            // state of formation and governing law
-    'legal_address' => '[Street address, City, State ZIP]',
-    'legal_email'   => 'legal@mdbuildingsllc.com',
-    'legal_updated' => 'September 4, 2026',  // last updated date shown on policy pages
+    // --- Legal ---
+    'state'         => 'Pennsylvania',   // state of formation and governing law
+    'legal_address' => '',               // <- misma direccion, pendiente
+    'legal_email'   => 'legal@mdbuildings.us',
+    'legal_updated' => 'September 4, 2026',
 
-    'form_to'     => 'info@mdbuildingsllc.com',
+    'form_to'     => 'info@mdbuildings.us',
     'og_default'  => 'logo-stacked.png',
-    'logo'        => 'logo-horizontal-light.png', // light version for the dark header
+    'logo'        => 'logo-horizontal-light.png',
     'logo_footer' => 'logo-stacked-light.png',
-    'cta_label'   => 'Free estimate',
+    'cta_label'   => 'Get in touch',
     'cta_url'     => 'contact.php',
 ];
 
@@ -56,10 +57,9 @@ $THEME = [
 ];
 
 $NAV = [
-    'home'     => ['label' => 'Home',     'url' => 'index.php'],
-    'services' => ['label' => 'Services', 'url' => 'services.php'],
-    'projects' => ['label' => 'Projects', 'url' => 'projects.php'],
-    'contact'  => ['label' => 'Contact',  'url' => 'contact.php'],
+    'home'       => ['label' => 'Home',       'url' => 'index.php'],
+    'properties' => ['label' => 'Properties', 'url' => 'properties.php'],
+    'contact'    => ['label' => 'Contact',    'url' => 'contact.php'],
 ];
 
 /** Policy pages, linked from the footer */
@@ -70,82 +70,50 @@ $LEGAL_NAV = [
     'accessibility' => ['label' => 'Accessibility Statement', 'url' => 'accessibility.php'],
 ];
 
-/** Services: [title, description, scope of work[]] */
-$SERVICES = [
-    ['Residential construction', 'New homes and small multifamily, from the foundation to the final walkthrough.',
-        ['Foundation and structure', 'Framing and roofing', 'MEP rough-in and finishes', 'Permits and inspections']],
-    ['Full remodels', 'Kitchens, bathrooms and whole spaces renovated without shutting your house down for months.',
-        ['Kitchens and bathrooms', 'Flooring and carpentry', 'Lighting and electrical', 'Plumbing']],
-    ['Additions', 'Extra square footage built right: rooms, garages, decks and second stories.',
-        ['Room additions', 'Garages and shops', 'Decks and patios', 'Second stories']],
-    ['Roofing and exteriors', 'We protect the house from the outside in: roof, facade and drainage.',
-        ['Roofing and repairs', 'Siding and facades', 'Gutters and drainage', 'Waterproofing']],
-    ['Concrete and sitework', 'Level, solid bases with an even finish.',
-        ['Driveways and walkways', 'Slabs and footings', 'Retaining walls', 'Stamped concrete']],
-    ['Drywall, paint and finishes', 'The last ten percent that makes the whole job look professional.',
-        ['Drywall and texture', 'Interior and exterior paint', 'Trim and molding', 'Doors and closets']],
+/** Our approach: [number, title, text] */
+$APPROACH = [
+    ['01', 'Location before price',
+        'We buy in neighborhoods we understand, where the value of a well-finished home is supported by the street it sits on.'],
+    ['02', 'Work that shows',
+        'We take on properties that need real work — structure, systems, layout — not a coat of paint over a problem.'],
+    ['03', 'A finished product that holds',
+        'The house has to make sense to the person who ends up living in it. That is the standard we underwrite to.'],
 ];
 
-/** How we work (home tabs): [title, text] */
-$TABS = [
-    ['Clear estimate',   'We visit the site, take real measurements and hand you a line-item budget. You know what is included, what is not and what it costs before anything is signed.'],
-    ['Permits',          'We handle plans, permits and inspections with the city. You do not chase paperwork.'],
-    ['Visible progress', 'Every week you get photos, percent complete and what comes next. No "it is going well" without evidence.'],
-    ['Handover',         'Final walkthrough item by item with you, and a written workmanship warranty.'],
+/** Our standard: the three points under "How the work gets done" */
+$STANDARD = [
+    'Licensed trades in every discipline',
+    'Permitted and inspected work',
+    'Scope defined before the first day on site',
 ];
 
-/** Process: [number, title, text] */
-$PROCESS = [
-    ['01', 'Site visit',        'We come out, understand the scope and take real measurements.'],
-    ['02', 'Line-item budget',  'You get the itemized estimate within 48 to 72 hours, at no cost.'],
-    ['03', 'Permits and schedule', 'We pull the permits and lock in start and completion dates.'],
-    ['04', 'Build and report',  'Our own crew on site, plus a weekly report with photos and progress.'],
-    ['05', 'Handover',          'Final walkthrough, punch list at zero and a written warranty.'],
+/**
+ * Properties. Empty until there is a real acquisition to show.
+ * Shape: ['location' => '', 'type' => '', 'scope' => '', 'status' => '']
+ * No purchase price, sale price or margin goes on a property card.
+ */
+$PROPERTIES = [];
+
+/** Who we work with: [audience, text] */
+$AUDIENCES = [
+    ['Property owners',
+        'If you own a home in Pennsylvania and are thinking about selling, we may be the buyer. We purchase directly and on our own timeline, which means no listing, no showings and no commission — we are the buyer, not an agent. The sale closes at a title company like any other transaction.'],
+    ['Brokers and agents',
+        'We are a straightforward counterparty. We look at what you bring, we answer quickly, and we do not renegotiate after diligence.'],
+    ['Contractors and trades',
+        'We work with licensed trades in the counties where we buy. If you run a crew and do careful work, we would like to know you.'],
 ];
 
-/** Figures: [number, label] */
-$STATS = [
-    ['150+',   'projects delivered'],
-    ['12',     'years in business'],
-    ['100%',   'licensed and insured'],
-    ['1 year', 'workmanship warranty'],
-];
+/**
+ * The people responsible, with their role. Left empty on purpose: no invented
+ * profiles. Shape: ['name' => '', 'role' => '']
+ */
+$TEAM = [];
 
-/** Projects: [title, type, summary, status, progress] */
-$PROJECTS = [
-    ['Kitchen remodel',      'Residential', 'Full kitchen: cabinets, island, quartz, electrical and flooring.', 'Delivered', '100%'],
-    ['Second-story addition','Residential', 'Two bedrooms and a bathroom over the existing structure.',         'Delivered', '100%'],
-    ['Retail build-out',     'Commercial',  'Complete build-out with ADA restrooms and a new storefront.',      'Delivered', '100%'],
-    ['New build, 2,400 sq ft','New construction', 'Turnkey, from footings to final finishes.',                  'In progress','68%'],
-    ['Driveway and patio',   'Concrete',    'Stamped concrete with drainage and a low retaining wall.',         'Delivered', '100%'],
-    ['Roof and siding',      'Exteriors',   'Full roof and facade replacement after storm damage.',             'Delivered', '100%'],
-];
-
-/** Project types: [title, who it is for, includes[], featured, price] */
-$TYPES = [
-    ['Repairs', 'One-off jobs',
-        ['On-site diagnosis', 'Materials included', 'Done in 1 to 5 days', 'Written warranty'], false, 'Free estimate'],
-    ['Remodel', 'Kitchens, bathrooms and additions',
-        ['Design and material selection', 'Permits included', 'Week-by-week schedule', 'Progress report with photos', '1-year warranty'], true, 'Free estimate'],
-    ['New construction', 'Turnkey homes and commercial spaces',
-        ['Plans and permits', 'Full construction management', 'Our own crew on site', 'Weekly report', 'Extended warranty'], false, 'Free estimate'],
-];
-
-/** Trades for the ticker */
-$TICKER = ['Roofing', 'Framing', 'Drywall', 'Concrete', 'Remodeling', 'Painting', 'Siding', 'Decks', 'Permits', 'New builds'];
-
-/** Testimonials: [quote, name, context] */
-$TESTIMONIALS = [
-    ['They gave us an itemized estimate and stuck to it. The kitchen was finished a week early.', 'The R. family', 'Kitchen remodel'],
-    ['What I valued most was the weekly photo report. I never had to call and ask how it was going.', 'Carlos M.', 'Second-story addition'],
-    ['Clean work and a serious crew. We already hired them for the second location.', 'Andrea P.', 'Retail build-out'],
-];
-
-$FAQ = [
-    ['Is the estimate free?', 'Yes. The site visit and the line-item budget are free and come with no obligation.'],
-    ['Do you handle permits?', 'Yes. Plans, permits and inspections with the city are part of the contract.'],
-    ['How is the work paid for?', 'By progress: a deposit to start and partial payments against verified milestones.'],
-    ['How long does a project take?', 'A bathroom runs 1 to 3 weeks, a kitchen 3 to 6, an addition 8 to 16. The date is in writing on your estimate.'],
-    ['Do you offer a warranty?', 'Yes, a written 1-year workmanship warranty, plus the manufacturer warranty on materials.'],
-    ['Do you work with insurance claims?', 'Yes. We document the damage and work with the adjuster on storm, water and fire claims.'],
+/** Contact form subjects: [value, label] */
+$SUBJECTS = [
+    ['property',  'A property'],
+    ['brokerage', 'Brokerage'],
+    ['trade',     'Trade or contractor'],
+    ['other',     'Other'],
 ];

@@ -67,7 +67,7 @@ $LEGAL = [
             'We may update this policy. The revised version takes effect when it is posted here, and the date below changes with it. If the change is significant, we will make that clear on the page.',
         ]],
         ['Contact', [
-            "Questions about this policy? Email $LE or write to $C, $AD.",
+            "Questions about this policy? Email $LE" . ($AD !== '' ? " or write to $C, $AD" : '') . ".",
         ]],
     ],
 ],
@@ -118,7 +118,7 @@ $LEGAL = [
             'We may revise these terms at any time. The version posted here is the one that applies, and continuing to use the site after a change means you accept it.',
         ]],
         ['Contact', [
-            "Questions about these terms? Email $LE or write to $C, $AD.",
+            "Questions about these terms? Email $LE" . ($AD !== '' ? " or write to $C, $AD" : '') . ".",
         ]],
     ],
 ],

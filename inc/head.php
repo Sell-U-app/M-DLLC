@@ -182,7 +182,7 @@ details.faq[open] summary::after{content:"2"}
     <span class="muted"><?= htmlspecialchars($SITE['license'] ?? '') ?><?= !empty($SITE['hours']) ? ' · ' . htmlspecialchars($SITE['hours']) : '' ?></span>
     <span style="display:flex;gap:18px;flex-wrap:wrap;justify-content:center">
       <?php if (!empty($SITE['phone'])): ?><a href="tel:<?= htmlspecialchars($SITE['phone_tel']) ?>">&#9742; <?= htmlspecialchars($SITE['phone']) ?></a><?php endif; ?>
-      <?php if (!empty($SITE['email'])): ?><a href="mailto:<?= htmlspecialchars($SITE['email']) ?>"><?= htmlspecialchars($SITE['email']) ?></a><?php endif; ?>
+      <?php if (!empty($SITE['email'])): ?><span><?= htmlspecialchars($SITE['email']) ?></span><?php endif; ?>
     </span>
   </div>
 </div>

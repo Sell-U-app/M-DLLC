@@ -25,14 +25,16 @@
       </div>
       <div>
         <div style="font-family:var(--font-head);font-weight:700;font-size:14px;margin-bottom:12px;opacity:.7">Contact</div>
-        <?php if (!empty($SITE['email'])): ?><a href="mailto:<?= htmlspecialchars($SITE['email']) ?>" style="color:var(--primary);text-decoration:none;font-size:14px;display:block;margin-bottom:9px;font-weight:600"><?= htmlspecialchars($SITE['email']) ?></a><?php endif; ?>
-        <?php if (!empty($SITE['phone'])): ?><a href="tel:<?= htmlspecialchars($SITE['phone_tel'] ?? $SITE['phone']) ?>" style="color:var(--primary);text-decoration:none;font-size:14px;display:block;margin-bottom:9px;font-weight:600"><?= htmlspecialchars($SITE['phone']) ?></a><?php endif; ?>
-        <?php if (!empty($SITE['address'])): ?><div style="opacity:.85;font-size:14px"><?= htmlspecialchars($SITE['address']) ?></div><?php endif; ?>
+        <?php if (!empty($SITE['email'])): ?><div style="color:var(--primary);font-size:14px;margin-bottom:9px;font-weight:600"><?= htmlspecialchars($SITE['email']) ?></div><?php endif; ?>
+        <a href="contact.php" style="color:var(--ink);text-decoration:none;font-size:14px;display:block;opacity:.8">Contact form</a>
       </div>
     </div>
     <div style="border-top:1px solid var(--border);margin-top:34px;padding-top:20px;display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;align-items:center">
-      <p style="margin:0;font-size:12px;opacity:.85">&copy; <?= date('Y') ?> <?= htmlspecialchars($SITE['name']) ?>. All rights reserved.</p>
-      <p style="margin:0;font-size:12px;opacity:.9">Built by <a href="https://sellu.co" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:underline;font-weight:700">Sell-U Latam</a></p>
+      <p style="margin:0;font-size:12px;opacity:.85">&copy; <?= date('Y') ?> <?= htmlspecialchars($SITE['legal_name'] ?? $SITE['name']) ?>. All rights reserved.</p>
+      <p style="margin:0;font-size:12px;opacity:.7"><?php
+        $bits = array_filter([$SITE['legal_name'] ?? $SITE['name'], $SITE['entity'] ?? '', $SITE['address'] ?? '']);
+        echo htmlspecialchars(implode(' · ', $bits));
+      ?></p>
     </div>
   </div>
 </footer>
