@@ -120,7 +120,7 @@ a{color:var(--primary)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 /* Header / nav */
 .site-header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:14px;padding-bottom:14px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--font-head);font-weight:800;font-size:20px;letter-spacing:-.01em}
 .brand img{height:34px;width:auto}
 @media(min-width:861px){.brand img{height:40px}}
